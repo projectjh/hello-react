@@ -6,7 +6,8 @@ import './App.css';
 // import MyComponent from './MyComponent';
 // import Counter from './Counter';
 // import Say from './Say';
-import EventPractice from './EventPractice';
+// import EventPractice from './EventPractice';
+import FormInput from './FormInput';
 
 // 함수 컴포넌트
 // function App() {
@@ -65,9 +66,16 @@ import EventPractice from './EventPractice';
 //   return <Say />;
 // };
 
-// p124. 컴포넌트 생성 / 이벤트 핸들링
+// // p124. 컴포넌트 생성 / 이벤트 핸들링
+// const App = () => {
+//   return <EventPractice></EventPractice>;
+// };
+
+
+// FormInput
 const App = () => {
-  return <EventPractice></EventPractice>;
+  return <FormInput />;
 };
+
 
 export default App;

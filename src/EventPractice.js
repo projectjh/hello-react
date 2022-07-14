@@ -182,17 +182,18 @@ import { useState } from 'react';
 
 const EventPractice = () => {
   const [form, setForm] = useState({      // useState에 객체 값이 주어짐 -> form양식과 같이 항목이 많은 경우 form양식을 객체로 만들어서 배치 
+        // 객체, 함수 -> 배열의 첫번째는 객체값 저장, 두번째는 함수값 저장
     username:'', 
     message:''
   });                                 
   const {username, message} = form;       // 비구조화 할당 (form의 객체를 각자 저장)
   const onChange = e => {
-    setTimeout(() => console.log(e), 500);
+    // setTimeout(() => console.log(e), 500);
     const nextForm = {
       ...form,                            // ...는 spread 연산자 / 기존의 form 내용 복사
       [e.target.name]: e.target.value     // 복사본 객체에 수정할 내용 저장
     };
-    setForm(nextForm);
+    setForm(nextForm);                    // 수정된 복사본을 원본인 form에 반영시켜주는 역할
   };
   
   const onClick = () => {
