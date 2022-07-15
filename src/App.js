@@ -1,4 +1,5 @@
 // import logo from "./logo.svg";
+import { Component } from 'react';
 import './App.css';
 // import { Fragment } from "react";
 // import { Component } from 'react';
@@ -7,7 +8,11 @@ import './App.css';
 // import Counter from './Counter';
 // import Say from './Say';
 // import EventPractice from './EventPractice';
-import FormInput from './FormInput';
+// import FormInput from './FormInput';
+import IterationSample from './IterationSample';
+// import ValidationSample from './ValidationSample';
+// import RefSample from './RefSample';
+// import ScrollBox from './ScrollBox';
 
 // 함수 컴포넌트
 // function App() {
@@ -72,10 +77,43 @@ import FormInput from './FormInput';
 // };
 
 
-// FormInput
-const App = () => {
-  return <FormInput />;
-};
+// // FormInput
+// const App = () => {
+//   return <FormInput />;
+// };
 
+
+// // p145. ref 예제 컴포넌트
+// const App = () => {
+//   // return <ValidationSample />
+//   // return <RefSample />
+  
+// }
+
+// class App extends Component {
+//   render() {
+//     return (
+//       <div>
+//         <ScrollBox ref={(ref) => this.scrollBox=ref} />
+//         <button onClick={() => this.scrollBox.scrollToBottom()}>맨 밑으로</button>
+//         {/* <button onClick={this.scrollBox.scrollToBottom}>맨 밑으로</button> 
+//             이렇게 작성하면 문법상으로 오류는 없으나 버튼 생성 시점에 scrollBox가 생성이 되지않아 undefined상태임.
+//             그렇기 때문에 콜백함수로 만들어서 호출하면 시점을 조절할 수 있다. 
+//             (함수는 먼저 렌더링 된 후에 함수를 호출하기 때문) */}
+//         <button onClick={() => this.scrollBox.scrollToTop()}>맨 위로</button>
+//       </div>
+//     );
+//   }
+// }
+
+
+// p160. 데이터 배열을 컴포넌트 배열로 변환하기
+class App extends Component {
+  render() {
+    return (
+      <IterationSample />
+    );
+  }
+}
 
 export default App;

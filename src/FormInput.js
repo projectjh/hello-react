@@ -89,7 +89,7 @@
 
 
 // 클래스형 컴포넌트
-import {Component} from 'react';
+import React, {Component} from 'react';
 
 class FormInput extends Component {
     state = {
@@ -124,6 +124,27 @@ class FormInput extends Component {
         });
     }
 
+    // enter시 focus 이동
+    handleKeyPress = (e) => {
+        if (e.key === 'Enter') {
+            if (e.target.name === 'id') {
+                this.input_pw.focus();
+            } else if (e.target.name === 'pw') {
+                this.input_jumin1.focus();
+            } else if (e.target.name === 'jumin1') {
+                this.input_jumin2.focus();
+            } else if (e.target.name === 'jumin2') {
+                this.input_tel1.focus();
+            } else if (e.target.name === 'tel1') {
+                this.input_tel2.focus();
+            } else if (e.target.name === 'tel2') {
+                this.input_tel3.focus();
+            } else if (e.target.name === 'tel3') {
+                this.input_btn.focus();
+            }
+        }
+    };
+
     render() {
         return(
             <div>
@@ -133,33 +154,33 @@ class FormInput extends Component {
                     <tr>
                         <td>아이디</td>
                         <td>
-                            <input type="text" name="id" size="30" required
-                                placeholder="아이디" value={this.state.id} onChange={this.handleChange} />
+                            <input ref={(ref) => this.input_id = ref} type="text" name="id" size="30" required
+                                placeholder="아이디" value={this.state.id} onChange={this.handleChange} onKeyPress={this.handleKeyPress} />
                         </td>
                     </tr>
                     <tr>
                         <td>비밀번호</td>
                         <td>
-                            <input type="password" name="pw" size="30"
-                                placeholder="패스워드" value={this.state.pw} onChange={this.handleChange} />
+                            <input ref={(ref) => this.input_pw = ref} type="password" name="pw" size="30"
+                                placeholder="패스워드" value={this.state.pw} onChange={this.handleChange} onKeyPress={this.handleKeyPress} />
                         </td>
                     </tr>
                     <tr>
                         <td>주민번호</td>
-                        <td><input type="text" name="jumin1" size="6" maxLength="6" placeholder="앞자리6자리" value={this.state.jumin1} onChange={this.handleChange} /> -
-                            <input type="text" name="jumin2" size="7" maxLength="7" placeholder="뒷자리7자리" value={this.state.jumin2} onChange={this.handleChange} />
+                        <td><input ref={(ref) => this.input_jumin1= ref} type="text" name="jumin1" size="6" maxLength="6" placeholder="앞자리6자리" value={this.state.jumin1} onChange={this.handleChange} onKeyPress={this.handleKeyPress} /> -
+                            <input ref={(ref) => this.input_jumin2 = ref} type="text" name="jumin2" size="7" maxLength="7" placeholder="뒷자리7자리" value={this.state.jumin2} onChange={this.handleChange} onKeyPress={this.handleKeyPress} />
                         </td>
                     </tr>
                     <tr>
                         <td>전화번호</td>
-                        <td><input type="tel" name="tel1" size="3" maxLength="3" placeholder="3자리" value={this.state.tel1} onChange={this.handleChange} /> -
-                            <input type="tel" name="tel2" size="4" maxLength="4" placeholder="4자리" value={this.state.tel2} onChange={this.handleChange} /> -
-                            <input type="tel" name="tel3" size="4" maxLength="4" placeholder="4자리" value={this.state.tel3} onChange={this.handleChange} />
+                        <td><input ref={(ref) => this.input_tel1 = ref} type="tel" name="tel1" size="3" maxLength="3" placeholder="3자리" value={this.state.tel1} onChange={this.handleChange} onKeyPress={this.handleKeyPress} /> -
+                            <input ref={(ref) => this.input_tel2 = ref} type="tel" name="tel2" size="4" maxLength="4" placeholder="4자리" value={this.state.tel2} onChange={this.handleChange} onKeyPress={this.handleKeyPress} /> -
+                            <input ref={(ref) => this.input_tel3 = ref} type="tel" name="tel3" size="4" maxLength="4" placeholder="4자리" value={this.state.tel3} onChange={this.handleChange} onKeyPress={this.handleKeyPress} />
                         </td>
                     </tr>
                     <tr>
                         <td colSpan="2" align="center">
-                            <button onClick={this.handleClick}>입력</button>
+                            <button ref={(ref) => this.input_btn = ref} onClick={this.handleClick}>입력</button>
                         </td>
                     </tr>
                 </tbody>
